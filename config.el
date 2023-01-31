@@ -4,12 +4,12 @@
 ;; sync' after modifying this file!
 
 
-;; User Identify (optional)
-;; e.g. GPG configuration, email clients, file templates and snippets
-(setq user-full-name "Practicalli John"
-      user-mail-address "john@practical.li")
+;; Some functionality uses this to identify you, e.g. GPG configuration, email
+;; clients, file templates and snippets. It is optional.
+(setq user-full-name "Markus Fruhmann"
+      user-mail-address "markus@fruhmann.dev")
 
-;; Doom exposes five (optional) variables for controlling fonts in Doom:
+;; doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use
 ;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
@@ -23,21 +23,19 @@
 ;;
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-
-(setq doom-font (font-spec :family "Fira Code" :size 16)
-      doom-big-font (font-spec :family "Fira Code" :size 24)
-      doom-variable-pitch-font (font-spec :family "Ubuntu" :size 16))
-
-
+;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
+(setq doom-font (font-spec :family "Hasklug Nerd Font" :size 16)
+      doom-big-font (font-spec :family "Hasklug Nerd Font" :size 24)
+      doom-variable-pitch-font (font-spec :family "Arial" :size 16))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-one)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -45,7 +43,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/Documents/org/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -80,13 +78,8 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-
-;; --------------------------------------------------
-;; Practicalli Configuration
-;; Search https://discourse.doomemacs.org/ for example configuration
-
-;; Practicalli Logo on startup dashboard
-(setq fancy-splash-image "~/.config/doom/images/practicalli-logo-dark.svg")
+;; ----------------------------------------
+;; Personal Configuration (from Practicalli)
 
 ;; Open Doom Emacs maximised
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -98,27 +91,36 @@
   (setq doom-modeline-persp-name t
         doom-modeline-major-mode-icon t))
 
-
 ;; Projects
 ;; Define a project path to discover projects using SPC Tab D
 ;; https://docs.projectile.mx/projectile/usage.html
-;; (setq projectile-project-search-path '("~/projects/" "~/work/" ("~/github" . 1)))
-(setq projectile-project-search-path '(("~/projects" . 2) ("~/.config" . 1)))
+;; (setq projectile-project-search-path '(("~/Documents/projects/" . 1)))
 
 ;; Disable projectile cache - saves requirement to invalidate cache when moving files
 ;; (setq projectile-enable-caching nil)
-;;
-;; Delete whitespace on save, including in markdow-mode
+
+;; Delete whitespace on save, including in markdown-mode
 (setq ws-butler-global-exempt-modes '(special-mode comint-mode term-mode eshell-mode diff-mode))
 
-;; Completion results order by history of use and then alphabetical
+;; Completion results ordered by history of use and the alphabetical
 (setq vertico-sort-function 'vertico-sort-history-alpha)
 
-;; ---------------------------------------
+;; If on a Mac, switch option and command key
+(when IS-MAC
+  (setq mac-option-modifier nil
+        mac-command-modifier 'meta
+        select-enable-clipboard t))
+
+;; Set scroll margin
+(setq scroll-margin 2)
+
+;; ----------------------------------------
 
 
-;; ---------------------------------------
+;; ----------------------------------------
 ;; Additional Configuration
+;; Files to load go here!
+;; (load! "path/to/file")
 
 ;; Which-key and Evil Key Bindings - Spacemacs style
 (load! "+bindings")
@@ -126,23 +128,22 @@
 ;; Clojure mode & Cider Configuration + key bindings
 (load! "+clojure")
 
-;; LSP Configuration
-(load! "+lsp")
-
 ;; Magit and Version Control
 (load! "+git")
 
+;; LSP Configuration
+(load! "+lsp")
+
 ;; Markdown mode
-(load! "+markdown.el")
+;; TODO: fix errors when uncommenting!
+;; (load! "+markdown.el")
 
 ;; Org-mode  configuraiton
 (load! "+org-mode")
 
 ;; Structural Editing - Smartparens
-(load! "+smartparens.el")
+(load! "+smartparens")
 
 ;; Configure packages outside of Doom modules
 ;; - keycast
 (load! "+package-config")
-
-;; ---------------------------------------

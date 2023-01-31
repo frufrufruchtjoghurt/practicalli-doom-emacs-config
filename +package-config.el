@@ -1,7 +1,5 @@
 ;;; +package-config.el -*- lexical-binding: t; -*-
 
-
-
 ;; ---------------------------------------
 ;; Configure packages
 ;;

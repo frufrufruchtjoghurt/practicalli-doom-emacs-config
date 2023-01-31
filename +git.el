@@ -39,8 +39,7 @@
 
 ;; Location of Git repositories
 ;; define paths and level of sub-directories to search
-(setq magit-repository-directories
-      '(("~/projects/" . 2)))
+;; (setq magit-repository-directories '(("~/projects/" . 2)))
 
 
 ;; Number of topics displayed (issues, pull requests)

@@ -1,4 +1,4 @@
-;;; $DOOMDIR/+clojure.el -*- lexical-binding: t; -*-
+;;; +clojure.el -*- lexical-binding: t; -*-
 
 ;; ---------------------------------------
 ;; Clojure

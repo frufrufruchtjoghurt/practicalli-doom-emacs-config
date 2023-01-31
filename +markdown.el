@@ -1,4 +1,4 @@
-;;; $DOOMDIR/+markdown.el -*- lexical-binding: t; -*-
+;;; +markdown.el -*- lexical-binding: t; -*-
 
 ;; ---------------------------------------
 ;; Markdown

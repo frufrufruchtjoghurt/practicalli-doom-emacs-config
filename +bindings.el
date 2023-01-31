@@ -15,7 +15,7 @@
 ;; fd as Esc key binding
 ;; https://discourse.doomemacs.org/t/typing-jk-deletes-j-and-returns-to-normal-mode/59/7
 (after! evil-escape
-  (setq evil-escape-key-sequence "fd"))
+  (setq evil-escape-key-sequence "jj"))
 
 ;; https://discourse.doomemacs.org/t/what-are-leader-and-localleader-keys/153
 ;; Doom Defaults: `SPC' leader key, `SPC m' local leader
@@ -104,6 +104,12 @@
          :desc "buffer" "b" #'+format/buffer
          :desc "region" "r" #'+format/region
          :desc "whitespace" "w" #'delete-trailing-whitespace))
+
+;; Comment
+(map! :leader
+      (:prefix "c"
+        :desc "un/comment line" "," #'comment-line
+        :desc "un/comment block" ";" #'comment-region))
 
 
 ;; ------------------------------------------------
