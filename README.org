@@ -16,7 +16,7 @@ The most noticalbe key bindings changed from the Doom Emacs defaults include:
 
 ~SPC g s~ opens Magit status (rather than stage hunk at point)
 
-~fd~ alternative key binding to pressing ~ESC~ key
+~jj~ alternative key binding to pressing ~ESC~ key
 
 ** Added keys
 
